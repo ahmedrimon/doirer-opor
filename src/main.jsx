@@ -14,6 +14,8 @@ import AuthProvider from './contexts/AuthContext/AuthProvider';
 import Rider from './pages/Rider/Rider';
 import PrivateRoute from './routes/PrivateRoute';
 import SendParcel from './pages/sendParcel/SendParcel';
+import DashboardLayout from './layouts/DashboardLayout';
+import MyParcels from './pages/Dashboard/MyParcels/MyParcels';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,16 @@ const router = createBrowserRouter([
       },
     ]
   },
+  {
+    path: "dashboard",
+    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    children: [
+      {
+        path: "my-parcels",
+        Component: MyParcels
+      }
+    ]
+  }
 
 ]);
 
